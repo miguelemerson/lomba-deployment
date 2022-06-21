@@ -1,0 +1,2 @@
+token auth Jenkins Local en GitHub
+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

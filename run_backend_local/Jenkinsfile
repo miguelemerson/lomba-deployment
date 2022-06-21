@@ -1,0 +1,17 @@
+pipeline {
+  agent any
+  stages {
+    stage('Preparation') {
+      steps {
+        sh ''
+      }
+    }
+
+    stage('Deploy Lomba Backend') {
+      steps {
+        sh 'docker-compose -f .\docker-compose.yml -p "lombalocal" up --build -d'
+        }
+      }
+
+    }
+  }
