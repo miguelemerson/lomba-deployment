@@ -3,7 +3,12 @@ pipeline {
   stages {
     stage('Preparation') {
       steps {
-        sh ''
+        sh '''
+        docker info
+        docker version
+        docker compose version
+        curl --version
+        '''
       }
     }
 
