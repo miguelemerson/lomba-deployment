@@ -4,11 +4,11 @@ services:
 #base de datos
   sqlserver_db:
   # nombre del contenedor
-    container_name: azuresql
+    container_name: testazuresql
     image: mcr.microsoft.com/azure-sql-edge:latest
     restart: always
     networks:
-      - netapi    
+      - netapitests    
     ports:
       - 14333:1433
     environment:
@@ -19,16 +19,16 @@ services:
     image: mperedo/lombabackend
     restart: unless-stopped      
     networks:
-      - netapi      
-    container_name: lombaapicomp
+      - netapitests      
+    container_name: testlombaapi
     environment:
-      ASPNETCORE_ENVIRONMENT: Staging
+      ASPNETCORE_ENVIRONMENT: LocalTests
     depends_on:
       - sqlserver_db  
     ports:
       - 8287:80
 
 networks:
-    netapi:
+    netapitests:
         driver: bridge
-        name: netapi      
+        name: netapitests      
