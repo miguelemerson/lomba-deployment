@@ -7,7 +7,7 @@ Para ejecutar y levantar jenkins, lo siguiente. Se especifican
 dos puertos, en este caso se expone el 8081 para web
 y el 50000 para integración.
 
-docker run -p 8081:8080 -p 50000:50000 --name jenkinsblue jenkins/blueocean_ci
+docker run -p 8081:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock --name jenkinsblue jenkins/blueocean_ci
 
 (queda expuesto el puerto 8081)
 

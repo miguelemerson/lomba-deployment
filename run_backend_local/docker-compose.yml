@@ -10,7 +10,7 @@ services:
     networks:
       - netapi    
     ports:
-      - 14332:1433
+      - 14333:1433
     environment:
       ACCEPT_EULA: Y
       MSSQL_SA_PASSWORD: sa0000.AB@qwer.9
