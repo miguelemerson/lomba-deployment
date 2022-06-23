@@ -14,7 +14,7 @@ pipeline {
 
     stage('Deploy Lomba Backend') {
       steps {
-        sh 'docker-compose -f docker-compose.yml -p "lombalocal" up --build -d'
+        sh 'docker-compose -f ./run_backend_local/docker-compose.yml -p "lombalocal" up --build -d'
         }
       }
 
