@@ -11,11 +11,9 @@ docker run -p 8081:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.s
 
 (queda expuesto el puerto 8081)
 
-
 Token:
 d5a2a818a9e24f98b299f1c1b4f08b5c
 
-tcp://host.docker.internal:2375
+Local URL:
 tcp://host.docker.internal:2375
 
-tocken docker hub: 4e8f7c1c-baf5-456b-afa2-5fffa8873f6b
