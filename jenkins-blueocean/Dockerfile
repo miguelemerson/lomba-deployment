@@ -14,6 +14,9 @@ RUN ./dotnet-install.sh -c 6.0 --install-dir /usr/share/dotnet
 
 RUN dotnet --info
 
+RUN apk add docker
+RUN apk add docker-compose
+
 RUN wget --no-verbose -O /tmp/apache-maven-3.6.3-bin.tar.gz https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
 RUN tar xzf /tmp/apache-maven-3.6.3-bin.tar.gz -C /opt/ 
 RUN ln -s  /opt/apache-maven-3.6.3 /opt/maven 

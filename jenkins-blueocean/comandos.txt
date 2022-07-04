@@ -1,7 +1,7 @@
 Para crear imagen, ejecutar el siguiente build en la carpeta
 que tenga el Dockerfile de jenkins blueocean
 
-docker build -t jenkins/blueocean_ci --no-cache .
+docker build -t jenkins/blueocean_ci --no-cache . --network host
 
 Para ejecutar y levantar jenkins, lo siguiente. Se especifican
 dos puertos, en este caso se expone el 8081 para web
