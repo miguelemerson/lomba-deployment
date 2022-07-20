@@ -1,0 +1,44 @@
+version: '3.9'
+
+services:
+#base de datos
+  sqlserver_db:
+  # nombre del contenedor
+    container_name: testazuresql
+    image: mcr.microsoft.com/azure-sql-edge:latest
+    restart: always
+    networks:
+      - netlombatest    
+    ports:
+      - 14333:1433
+    environment:
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: sa0000.AB@qwer.9
+
+  lombaapi:
+    image: mperedo/lombabackend
+    restart: unless-stopped      
+    networks:
+      - netlombatest      
+    container_name: testlombaapi
+    environment:
+      ASPNETCORE_ENVIRONMENT: LocalTests
+    depends_on:
+      - sqlserver_db  
+    ports:
+      - 8287:80
+
+  lombafront:
+    image: mperedo/lombafrontend
+    restart: unless-stopped      
+    networks:
+      - netlombatest      
+    container_name: testlombafront
+    depends_on:
+      - lombaapi  
+    ports:
+      - 1202:80
+networks:
+    netlombatest:
+        driver: bridge
+        name: netlombatest      

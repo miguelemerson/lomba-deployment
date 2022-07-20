@@ -1,0 +1,22 @@
+pipeline {
+  agent any
+  stages {
+    stage('Preparation') {
+      steps {
+        sh '''
+        docker version
+        docker info
+        docker-compose version
+        curl --version
+        '''
+      }
+    }
+
+    stage('Deploy Lomba Front and Back') {
+      steps {
+        sh 'docker-compose -f ./run_frontback_local/docker-compose.yml -p "lombalocalall" up --build --force-recreate -d'
+        }
+      }
+
+    }
+  }
