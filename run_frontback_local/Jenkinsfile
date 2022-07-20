@@ -8,6 +8,7 @@ pipeline {
         docker info
         docker-compose version
         curl --version
+        chmod 777 /var/run/docker.sock
         '''
       }
     }
